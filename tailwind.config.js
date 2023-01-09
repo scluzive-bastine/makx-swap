@@ -35,6 +35,7 @@ module.exports = {
           'dark-900': '#161522BF',
           'dark-800': '#202231',
           'dark-pink-red': '#4e3034',
+          'slate-1000': '#070816',
         },
         border: {
           1: '1px',

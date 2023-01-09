@@ -4,6 +4,7 @@ import { useLingui } from '@lingui/react'
 import { ChainId, SUSHI_ADDRESS } from '@sushiswap/core-sdk'
 import { RocketIcon, WalletIcon } from 'app/components/Icon'
 import { Feature } from 'app/enums'
+import useMenuItems from 'app/features/account/useMenuItems'
 import { featureEnabled } from 'app/functions'
 import { useActiveWeb3React } from 'app/services/web3'
 import { ReactNode, useMemo } from 'react'
@@ -149,26 +150,26 @@ const useMenu: UseMenu = () => {
       })
     }
 
-    if (featureEnabled(Feature.LIQUIDITY_MINING, chainId)) {
-      const farmItems = {
-        key: 'farm',
-        title: i18n._(t`Farm`),
-        icon: <SwitchVerticalIcon width={20} className="rotate-90 filter" />,
-        items: [
-          {
-            key: 'farm',
-            title: i18n._(t`Onsen Menu`),
-            link: '/farm',
-          },
-          {
-            key: 'my-farms',
-            title: i18n._(t`My Farms`),
-            link: '/farm?filter=portfolio',
-          },
-        ],
-      }
-      menu.push(farmItems)
-    }
+    // if (featureEnabled(Feature.LIQUIDITY_MINING, chainId)) {
+    //   const farmItems = {
+    //     key: 'farm',
+    //     title: i18n._(t`Farm`),
+    //     icon: <SwitchVerticalIcon width={20} className="rotate-90 filter" />,
+    //     items: [
+    //       {
+    //         key: 'farm',
+    //         title: i18n._(t`Onsen Menu`),
+    //         link: '/farm',
+    //       },
+    //       {
+    //         key: 'my-farms',
+    //         title: i18n._(t`My Farms`),
+    //         link: '/farm?filter=portfolio',
+    //       },
+    //     ],
+    //   }
+    //   menu.push(farmItems)
+    // }
 
     // if (featureEnabled(Feature.KASHI, chainId)) {
     //   menu.push({
@@ -190,151 +191,151 @@ const useMenu: UseMenu = () => {
     //   })
     // }
 
-    if (featureEnabled(Feature.MISO, chainId)) {
-      const misoMenu = {
-        key: 'miso',
-        title: i18n._(t`MISO`),
-        icon: <RocketIcon width={20} />,
-        items: [
-          {
-            key: 'marketplace',
-            title: i18n._(t`Marketplace`),
-            link: '/miso',
-          },
-        ],
-      }
+    // if (featureEnabled(Feature.MISO, chainId)) {
+    //   const misoMenu = {
+    //     key: 'miso',
+    //     title: i18n._(t`MISO`),
+    //     icon: <RocketIcon width={20} />,
+    //     items: [
+    //       {
+    //         key: 'marketplace',
+    //         title: i18n._(t`Marketplace`),
+    //         link: '/miso',
+    //       },
+    //     ],
+    //   }
 
-      if (chainId !== ChainId.ETHEREUM) {
-        misoMenu.items.push({
-          key: 'launchpad',
-          title: i18n._(t`Launchpad`),
-          link: '/miso/auction',
-        })
-      }
+    //   if (chainId !== ChainId.ETHEREUM) {
+    //     misoMenu.items.push({
+    //       key: 'launchpad',
+    //       title: i18n._(t`Launchpad`),
+    //       link: '/miso/auction',
+    //     })
+    //   }
 
-      menu.push(misoMenu)
-    }
+    //   menu.push(misoMenu)
+    // }
 
     const exploreMenu: MenuItemLeaf[] = []
 
-    if (featureEnabled(Feature.STAKING, chainId)) {
-      exploreMenu.push({
-        key: 'sushi-bar',
-        title: i18n._(t`Sushi Bar`),
-        link: '/stake',
-      })
-    }
+    // if (featureEnabled(Feature.STAKING, chainId)) {
+    //   exploreMenu.push({
+    //     key: 'sushi-bar',
+    //     title: i18n._(t`Sushi Bar`),
+    //     link: '/stake',
+    //   })
+    // }
 
-    if (featureEnabled(Feature.MEOWSHI, chainId)) {
-      exploreMenu.push({
-        key: 'meowshi',
-        title: i18n._(t`Meowshi`),
-        link: '/tools/meowshi',
-      })
-    }
+    // if (featureEnabled(Feature.MEOWSHI, chainId)) {
+    //   exploreMenu.push({
+    //     key: 'meowshi',
+    //     title: i18n._(t`Meowshi`),
+    //     link: '/tools/meowshi',
+    //   })
+    // }
 
-    if (featureEnabled(Feature.MEOWSHI, chainId)) {
-      exploreMenu.push({
-        key: 'yield',
-        title: i18n._(t`Yield Strategies`),
-        link: '/tools/inari',
-      })
-    }
+    // if (featureEnabled(Feature.MEOWSHI, chainId)) {
+    //   exploreMenu.push({
+    //     key: 'yield',
+    //     title: i18n._(t`Yield Strategies`),
+    //     link: '/tools/inari',
+    //   })
+    // }
 
-    if (exploreMenu.length > 0) {
-      menu.push({
-        key: 'explore',
-        title: i18n._(t`Explore`),
-        items: exploreMenu,
-        icon: <GlobeIcon width={20} />,
-      })
-    }
+    // if (exploreMenu.length > 0) {
+    //   menu.push({
+    //     key: 'explore',
+    //     title: i18n._(t`Explore`),
+    //     items: exploreMenu,
+    //     icon: <GlobeIcon width={20} />,
+    //   })
+    // }
 
-    let analyticsMenu: MenuItem = {
-      key: 'analytics',
-      title: i18n._(t`Analytics`),
-      icon: <TrendingUpIcon width={20} />,
-      items: [
-        {
-          key: 'dashboard',
-          title: 'Dashboard',
-          link: `/analytics`,
-        },
-        {
-          key: 'xsushi',
-          title: 'xSUSHI',
-          link: '/analytics/xsushi',
-        },
-        {
-          key: 'tokens',
-          title: 'Tokens',
-          link: `/analytics/tokens`,
-        },
-        {
-          key: 'pools',
-          title: 'Pools',
-          link: `/analytics/pools`,
-        },
-      ],
-    }
+    // let analyticsMenu: MenuItem = {
+    //   key: 'analytics',
+    //   title: i18n._(t`Analytics`),
+    //   icon: <TrendingUpIcon width={20} />,
+    //   items: [
+    //     {
+    //       key: 'dashboard',
+    //       title: 'Dashboard',
+    //       link: `/analytics`,
+    //     },
+    //     {
+    //       key: 'xsushi',
+    //       title: 'xSUSHI',
+    //       link: '/analytics/xsushi',
+    //     },
+    //     {
+    //       key: 'tokens',
+    //       title: 'Tokens',
+    //       link: `/analytics/tokens`,
+    //     },
+    //     {
+    //       key: 'pools',
+    //       title: 'Pools',
+    //       link: `/analytics/pools`,
+    //     },
+    //   ],
+    // }
 
-    if (featureEnabled(Feature.BENTOBOX, chainId)) {
-      analyticsMenu.items.push({
-        key: 'farms',
-        title: 'Farms',
-        link: `/analytics/farms`,
-      })
-    }
+    // if (featureEnabled(Feature.BENTOBOX, chainId)) {
+    //   analyticsMenu.items.push({
+    //     key: 'farms',
+    //     title: 'Farms',
+    //     link: `/analytics/farms`,
+    //   })
+    // }
 
-    if (featureEnabled(Feature.BENTOBOX, chainId)) {
-      analyticsMenu.items.push({
-        key: 'bentobox',
-        title: 'BentoBox',
-        link: `/analytics/bentobox`,
-      })
-    }
+    // if (featureEnabled(Feature.BENTOBOX, chainId)) {
+    //   analyticsMenu.items.push({
+    //     key: 'bentobox',
+    //     title: 'BentoBox',
+    //     link: `/analytics/bentobox`,
+    //   })
+    // }
 
-    if (featureEnabled(Feature.ANALYTICS, chainId)) {
-      menu.push(analyticsMenu)
-    }
+    // if (featureEnabled(Feature.ANALYTICS, chainId)) {
+    //   menu.push(analyticsMenu)
+    // }
 
-    if (account && chainId !== ChainId.ARBITRUM_NOVA) {
-      const portfolio = {
-        key: 'portfolio',
-        title: i18n._(t`Portfolio`),
+    // if (account && chainId !== ChainId.ARBITRUM_NOVA) {
+    //   const portfolio = {
+    //     key: 'portfolio',
+    //     title: i18n._(t`Portfolio`),
 
-        icon: <WalletIcon width={20} />,
-        items: [
-          {
-            key: 'account',
-            title: 'Account',
-            link: `/account?account=${account}`,
-          },
-        ],
-      }
+    //     icon: <WalletIcon width={20} />,
+    //     items: [
+    //       {
+    //         key: 'account',
+    //         title: 'Account',
+    //         link: `/account?account=${account}`,
+    //       },
+    //     ],
+    //   }
 
-      if (featureEnabled(Feature.SUBGRAPH, chainId)) {
-        portfolio.items.push({
-          key: 'liquidity',
-          title: 'Liquidity',
-          link: `/account/liquidity?account=${account}`,
-        })
-      }
+    //   if (featureEnabled(Feature.SUBGRAPH, chainId)) {
+    //     portfolio.items.push({
+    //       key: 'liquidity',
+    //       title: 'Liquidity',
+    //       link: `/account/liquidity?account=${account}`,
+    //     })
+    //   }
 
-      if (featureEnabled(Feature.KASHI, chainId)) {
-        portfolio.items.push({
-          key: 'lending',
-          title: 'Lending',
-          link: `/account/lending?account=${account}`,
-        })
-        portfolio.items.push({
-          key: 'borrowing',
-          title: 'Borrowing',
-          link: `/account/borrowing?account=${account}`,
-        })
-      }
-      menu.push(portfolio)
-    }
+    //   if (featureEnabled(Feature.KASHI, chainId)) {
+    //     portfolio.items.push({
+    //       key: 'lending',
+    //       title: 'Lending',
+    //       link: `/account/lending?account=${account}`,
+    //     })
+    //     portfolio.items.push({
+    //       key: 'borrowing',
+    //       title: 'Borrowing',
+    //       link: `/account/borrowing?account=${account}`,
+    //     })
+    //   }
+    //   menu.push(portfolio)
+    // }
 
     return menu.filter((el) => Object.keys(el).length > 0)
   }, [account, chainId, i18n])

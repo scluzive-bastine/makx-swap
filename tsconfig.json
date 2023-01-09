@@ -34,7 +34,8 @@
       "app/state": ["./state"],
       "app/state/*": ["./state/*"],
       "app/types": ["./types"],
-      "app/types/*": ["./types/*"]
+      "app/types/*": ["./types/*"],
+      "app/images/*": ["images/*"]
     },
     "target": "es2018",
     "lib": ["dom", "dom.iterable", "esnext"],

@@ -1,10 +1,11 @@
 import { ChainId } from '@sushiswap/core-sdk'
+import goerli from 'app/images/networks/svg/ethereum-logo.svg'
 
 const Arbitrum = 'https://raw.githubusercontent.com/sushiswap/icons/master/network/arbitrum.jpg'
 const Avalanche = 'https://raw.githubusercontent.com/sushiswap/icons/master/network/avalanche.jpg'
 const Bsc = 'https://raw.githubusercontent.com/sushiswap/icons/master/network/bsc.jpg'
 const Fantom = 'https://raw.githubusercontent.com/sushiswap/icons/master/network/fantom.jpg'
-const Goerli = 'https://raw.githubusercontent.com/sushiswap/icons/master/network/goerli.jpg'
+const Goerli = goerli
 const Harmony = 'https://raw.githubusercontent.com/sushiswap/icons/master/network/harmonyone.jpg'
 const Heco = 'https://raw.githubusercontent.com/sushiswap/icons/master/network/heco.jpg'
 const Kovan = 'https://raw.githubusercontent.com/sushiswap/icons/master/network/kovan.jpg'

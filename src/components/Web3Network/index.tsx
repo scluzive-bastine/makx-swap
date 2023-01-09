@@ -1,4 +1,4 @@
-import { NETWORK_ICON } from 'app/config/networks'
+import { NETWORK_ICON, NETWORK_LABEL } from 'app/config/networks'
 import { switchToNetwork } from 'app/functions/network'
 import useIsWindowVisible from 'app/hooks/useIsWindowVisible'
 import usePrevious from 'app/hooks/usePrevious'
@@ -10,6 +10,7 @@ import Cookies from 'js-cookie'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React, { useCallback, useEffect, useState } from 'react'
+import Typography from '../Typography'
 
 function Web3Network(): JSX.Element | null {
   const { chainId, library } = useActiveWeb3React()
@@ -99,15 +100,23 @@ function Web3Network(): JSX.Element | null {
 
   if (!chainId || !library) return null
 
+  console.log(NETWORK_LABEL[chainId])
+
   return (
     <div
-      className="flex items-center text-sm font-bold cursor-pointer pointer-events-auto select-none whitespace-nowrap"
+      className="flex items-center text-sm font-bold cursor-pointer pointer-events-auto select-none whitespace-nowrap group"
       onClick={() => toggleNetworkModal()}
     >
-      <div className="grid items-center grid-flow-col justify-center h-[36px] w-[36px] text-sm rounded pointer-events-auto auto-cols-max text-secondary">
-        {/*@ts-ignore TYPE NEEDS FIXING*/}
-        <Image src={NETWORK_ICON[chainId]} alt="Switch Network" className="rounded-full" width="24px" height="24px" />
+      <div className="flex space-x-2 items-center border border-gray-700 rounded px-3 py-2 group-hover:bg-slate-800 transition duration-200 ease-in-out">
+        <div className="h-[24px] w-[24px]">
+          {/*@ts-ignore TYPE NEEDS FIXING*/}
+          <Image src={NETWORK_ICON[chainId]} objectFit="cover" alt="Switch Network" className="rounded-full" />
+        </div>
+        <Typography variant="sm" className="text-gray-200">
+          {NETWORK_LABEL[chainId]}
+        </Typography>
       </div>
+
       <NetworkModel
         switchNetwork={(targetChain: number) => {
           handleChainSwitch(targetChain)

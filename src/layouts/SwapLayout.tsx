@@ -27,6 +27,7 @@ export const Layout: FC<Layout> = ({ children, id }) => {
     <DefaultLayout>
       <Container id={id} className="py-4 md:py-12 lg:py-[120px] px-2 mx-auto" maxWidth="md">
         <DoubleGlowShadow>{children}</DoubleGlowShadow>
+        <div className="fixed top-0 left-0 bg-slate-800/10 w-full h-full"></div>
       </Container>
     </DefaultLayout>
   )
