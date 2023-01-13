@@ -23,13 +23,12 @@ const SIZE = {
 }
 
 const FILLED = {
-  default:
-    'text-gray-200 bg-emerald-500 hover:bg-emerald-700 transition duration-150 disabled:pointer-events-none disabled:text-gray-200 disabled:opacity-40',
+  default: 'transition duration-150 disabled:pointer-events-none disabled:text-gray-200 disabled:opacity-50',
   blue: 'bg-blue border-blue',
   red: 'bg-red',
   pink: 'bg-pink',
   purple: 'bg-purple',
-  emerald: 'bg-emerald-500 hover:bg-emerald-700 transition duration-150',
+  emerald: 'bg-emerald-500 hover:bg-emerald-700',
   gradient:
     '!bg-gradient-to-r from-blue to-pink-600 hover:from-blue/80 hover:to-pink-600/80 focus:from-blue/80 focus:to-pink-600/80 active:from-blue/70 active:to-pink-600/70 focus:border-blue-700',
   gray: 'bg-dark-700',

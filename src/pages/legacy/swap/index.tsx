@@ -452,7 +452,7 @@ const Swap = ({ banners }: SwapProps) => {
               )}
               {approvalState === ApprovalState.APPROVED && (
                 <Button
-                  color={isValid && priceImpactSeverity > 2 ? 'red' : 'gradient'}
+                  color={isValid && priceImpactSeverity > 2 ? 'red' : 'emerald'}
                   onClick={() => {
                     if (isExpertMode) {
                       handleSwap()
