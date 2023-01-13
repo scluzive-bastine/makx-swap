@@ -4,7 +4,7 @@ import React, { FC, ReactNode } from 'react'
 import Dots from '../Dots'
 import Loader from '../Loader'
 
-export type ButtonColor = 'red' | 'blue' | 'pink' | 'purple' | 'gradient' | 'gray'
+export type ButtonColor = 'red' | 'blue' | 'pink' | 'purple' | 'gradient' | 'gray' | 'emerald'
 export type ButtonSize = 'xs' | 'sm' | 'lg' | 'default' | 'none'
 export type ButtonVariant = 'outlined' | 'filled' | 'empty'
 
@@ -23,12 +23,13 @@ const SIZE = {
 }
 
 const FILLED = {
-  default: 'bg-emerald disabled:pointer-events-none disabled:opacity-40',
+  default:
+    'text-gray-200 bg-emerald-500 hover:bg-emerald-700 transition duration-150 disabled:pointer-events-none disabled:text-gray-200 disabled:opacity-40',
   blue: 'bg-blue border-blue',
   red: 'bg-red',
   pink: 'bg-pink',
   purple: 'bg-purple',
-  emerald: 'bg-emerald',
+  emerald: 'bg-emerald-500 hover:bg-emerald-700 transition duration-150',
   gradient:
     '!bg-gradient-to-r from-blue to-pink-600 hover:from-blue/80 hover:to-pink-600/80 focus:from-blue/80 focus:to-pink-600/80 active:from-blue/70 active:to-pink-600/70 focus:border-blue-700',
   gray: 'bg-dark-700',
@@ -40,6 +41,7 @@ const OUTLINED = {
   red: 'border-none bg-red/20 hover:bg-red/40 active:bg-red/60 text-red focus:bg-red/40',
   pink: 'border-none bg-pink/20 hover:bg-pink/40 active:bg-pink/60 text-pink focus:bg-pink/40',
   purple: 'border-none bg-purple/20 hover:bg-purple/40 active:bg-purple/60 text-purple focus:bg-purple/40',
+  emerald: 'border-none bg-emerald/20 hover:bg-emerald/40 active:bg-emerald/60 text-emerald focus:bg-emerald/40',
   gradient: 'border-none bg-purple/20 hover:bg-purple/40 active:bg-purple/60 text-purple focus:bg-purple/40',
   gray: 'border-dark-700 hover:bg-dark-700/30 active:bg-dark-700/50 focus:bg-dark-700/30',
 }

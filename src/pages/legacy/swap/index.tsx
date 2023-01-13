@@ -483,7 +483,7 @@ const Swap = ({ banners }: SwapProps) => {
             </div>
           ) : (
             <Button
-              color={isValid && priceImpactSeverity > 2 && !swapCallbackError ? 'red' : 'gradient'}
+              color={isValid && priceImpactSeverity > 2 && !swapCallbackError ? 'red' : 'emerald'}
               fullWidth
               onClick={() => {
                 if (isExpertMode) {
