@@ -18,6 +18,7 @@ import React, { FC, useCallback, useEffect, useMemo, useState } from 'react'
 import { isMobile } from 'react-device-detect'
 import { UnsupportedChainIdError, useWeb3React } from 'web3-react-core'
 import { WalletConnectConnector } from 'web3-react-walletconnect-connector'
+import { Identicon } from 'app/components/Identicon'
 
 import Option from './Option'
 import PendingView from './PendingView'

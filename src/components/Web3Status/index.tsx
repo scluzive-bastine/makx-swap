@@ -84,7 +84,7 @@ function Web3StatusInner() {
               <Davatar
                 size={24}
                 address={account}
-                defaultComponent={<Identicon account={account} />}
+                defaultComponent={<Identicon account={account} diameter={24} />}
                 provider={library}
               />
             </div>

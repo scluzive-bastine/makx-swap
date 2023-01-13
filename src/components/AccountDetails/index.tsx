@@ -18,6 +18,7 @@ import ExternalLink from '../ExternalLink'
 import Typography from '../Typography'
 import Copy from './Copy'
 import Transaction from './Transaction'
+import { Identicon } from '../Identicon'
 
 interface AccountDetailsProps {
   toggleWalletModal: () => void
@@ -85,9 +86,7 @@ const AccountDetails: FC<AccountDetailsProps> = ({
                   size={48}
                   // @ts-ignore TYPE NEEDS FIXING
                   address={account}
-                  defaultComponent={
-                    <Image src="https://app.sushi.com/images/chef.svg" alt="Sushi Chef" width={48} height={48} />
-                  }
+                  defaultComponent={<Identicon account={account ? account : ''} diameter={48} />}
                   provider={library}
                 />
               </div>
