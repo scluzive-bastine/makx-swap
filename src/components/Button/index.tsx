@@ -23,12 +23,12 @@ const SIZE = {
 }
 
 const FILLED = {
-  default:
-    'text-higher-emphesis hover:bg-gradient-to-b hover:from-black/20 focus:to-black/20 focus:bg-gradient-to-b focus:from-black/20 hover:to-black/20 active:bg-gradient-to-b active:from-black/40 active:to-black/40 disabled:pointer-events-none disabled:opacity-40',
+  default: 'bg-emerald disabled:pointer-events-none disabled:opacity-40',
   blue: 'bg-blue border-blue',
   red: 'bg-red',
   pink: 'bg-pink',
   purple: 'bg-purple',
+  emerald: 'bg-emerald',
   gradient:
     '!bg-gradient-to-r from-blue to-pink-600 hover:from-blue/80 hover:to-pink-600/80 focus:from-blue/80 focus:to-pink-600/80 active:from-blue/70 active:to-pink-600/70 focus:border-blue-700',
   gray: 'bg-dark-700',

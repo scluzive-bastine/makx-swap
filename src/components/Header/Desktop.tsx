@@ -28,7 +28,6 @@ const Desktop: FC = () => {
               <div className="flex gap-4">
                 <div className="flex items-center mr-4">
                   <Image src={logo.src} alt="Makx Logo" width="35px" height="35px" />
-                  {/* <img src={logo.src} alt="Makx Logo" width="24px" height="24px" /> */}
                 </div>
                 {menu.map((node) => {
                   return <NavigationItem node={node} key={node.key} />

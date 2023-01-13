@@ -100,14 +100,12 @@ function Web3Network(): JSX.Element | null {
 
   if (!chainId || !library) return null
 
-  console.log(NETWORK_LABEL[chainId])
-
   return (
     <div
       className="flex items-center text-sm font-bold cursor-pointer pointer-events-auto select-none whitespace-nowrap group"
       onClick={() => toggleNetworkModal()}
     >
-      <div className="flex space-x-2 items-center border border-gray-700 rounded px-3 py-2 group-hover:bg-slate-800 transition duration-200 ease-in-out">
+      <div className="flex space-x-2 items-center border border-gray-700 rounded px-3 py-2 group:hover:bg-slate-800 transition duration-200 ease-in-out">
         <div className="h-[24px] w-[24px]">
           {/*@ts-ignore TYPE NEEDS FIXING*/}
           <Image src={NETWORK_ICON[chainId]} objectFit="cover" alt="Switch Network" className="rounded-full" />
